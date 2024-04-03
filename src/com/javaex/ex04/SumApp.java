@@ -12,12 +12,15 @@ public class SumApp {
 		String numLine = sc.nextLine();
 
 		//코드를 작성하세요
-		String[] numStringArray = numLine.split(" ");
-		for (String numString: numStringArray) {
-			sum += Integer.parseInt(numString);
+		String[] numStringArray = numLine.trim().split("\\s+");
+		try {
+			for (String numString: numStringArray) {
+				sum += Integer.parseInt(numString);
+			}
+			System.out.println("합:" + sum);
+		} catch (NumberFormatException e) {
+			System.err.println("숫자만 입력하세요.");
 		}
-		System.out.println("합:" + sum);
-		
 		sc.close();
 	}
 
