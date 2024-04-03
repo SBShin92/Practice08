@@ -11,7 +11,7 @@ public class CalcApp {
         int sum ;
 
         while (true) {
-            System.out.printf(">> ");
+            System.out.print(">> ");
             inputLine = sc.nextLine().trim();
             if (inputLine.equals("/q")) {
                 break ;
@@ -29,7 +29,6 @@ public class CalcApp {
             }
             else
                 System.out.println("알 수 없는 연산입니다.");
-            sum = 0;
         }
         System.out.println("종료합니다.");
         sc.close();
@@ -37,7 +36,7 @@ public class CalcApp {
 
     private static boolean isValue(String[] splitLine) {
         try {
-            if (splitLine[0] == null || splitLine[1] == null || splitLine[2] == null);
+            if (splitLine[0] != null && splitLine[1] != null && splitLine[2] != null);
             Integer.parseInt(splitLine[0]);
             Integer.parseInt(splitLine[2]);
             if (splitLine[1].equals("+") ||
