@@ -16,7 +16,14 @@ public class CalcApp {
             if (inputLine.equals("/q")) {
                 break ;
             }
-            splitLine = inputLine.split("\\s+");
+
+            /* Whitespace 모두 제거 후 숫자와 숫자가 아닌 문자 별로 스플릿 */
+//            inputLine = inputLine.replaceAll("\s", ""); // 모든 Whitespace 제거
+//            splitLine = inputLine.split("(?<=\\d)(?=\\D)|(?<=\\D)(?=\\d)"); // 숫자->문자, 문자->숫자 될 때마다 스플릿
+
+            /* Whitespace 기준으로 Split */
+            splitLine = inputLine.split("\\s+"); // Whitespace 기준으로 스플릿
+
             if (isValue(splitLine)) {
                 try {
                     sum = calculator(Integer.parseInt(splitLine[0]),
