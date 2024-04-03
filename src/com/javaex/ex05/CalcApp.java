@@ -16,7 +16,7 @@ public class CalcApp {
             if (inputLine.equals("/q")) {
                 break ;
             }
-            splitLine = inputLine.split(" ");
+            splitLine = inputLine.split("\\s+");
             if (isValue(splitLine)) {
                 try {
                     sum = calculator(Integer.parseInt(splitLine[0]),
