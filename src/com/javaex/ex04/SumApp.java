@@ -20,6 +20,8 @@ public class SumApp {
 			System.out.println("합:" + sum);
 		} catch (NumberFormatException e) {
 			System.err.println("숫자만 입력하세요.");
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		sc.close();
 	}

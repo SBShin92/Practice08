@@ -10,7 +10,7 @@ public class Div {
         this.b = b;
     }
 
-    public int calculate() {
+    public int calculate() throws ArithmeticException {
         return (a / b);
     }
 

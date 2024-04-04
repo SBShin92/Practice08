@@ -18,12 +18,11 @@ public class CalcApp {
             }
 
             /* Whitespace 모두 제거 후 숫자와 숫자가 아닌 문자 별로 스플릿 */
-//            inputLine = inputLine.replaceAll("\s", ""); // 모든 Whitespace 제거
-//            splitLine = inputLine.split("(?<=\\d)(?=\\D)|(?<=\\D)(?=\\d)"); // 숫자->문자, 문자->숫자 될 때마다 스플릿
+            inputLine = inputLine.replaceAll("\\s", ""); // 모든 Whitespace 제거
+            splitLine = inputLine.split("(?<=\\d)(?=\\D)|(?<=\\D)(?=\\d)"); // 숫자->문자, 문자->숫자 될 때마다 스플릿
 
             /* Whitespace 기준으로 Split */
-            splitLine = inputLine.split("\\s+"); // Whitespace 기준으로 스플릿
-
+//            splitLine = inputLine.split("\\s+"); // Whitespace 기준으로 스플릿
             if (isValue(splitLine)) {
                 try {
                     sum = calculator(Integer.parseInt(splitLine[0]),
@@ -31,7 +30,9 @@ public class CalcApp {
                             splitLine[1]);
                     System.out.println(">> " + sum);
                 } catch (ArithmeticException e) {
-                    System.out.println("0으로 나눌 수 없습니다.");
+                    System.err.println("연산할 수 없습니다.");
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
             else
@@ -52,10 +53,13 @@ public class CalcApp {
                     splitLine[1].equals("/"))
                 return true;
         } catch (NumberFormatException e) {
-        } catch (ArrayIndexOutOfBoundsException e) {}
+        } catch (ArrayIndexOutOfBoundsException e) {
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return false;
     }
-    private static int calculator(int a, int b, String operator) {
+    private static int calculator(int a, int b, String operator) throws ArithmeticException {
         Add add = new Add();
         Sub sub = new Sub();
         Mul mul = new Mul();
